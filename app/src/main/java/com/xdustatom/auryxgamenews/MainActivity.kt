@@ -3,10 +3,11 @@ package com.xdustatom.auryxgamenews
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
-import androidx.compose.foundation.layout.*
-import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Modifier
+import com.xdustatom.auryxgamenews.ui.NewsScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,14 +15,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    Column(
-                        modifier = Modifier.padding(32.dp),
-                        verticalArrangement = Arrangement.Center
-                    ) {
-                        Text("Auryx Game News", style = MaterialTheme.typography.headlineLarge)
-                        Spacer(modifier = Modifier.height(12.dp))
-                        Text("RSS Gaming News – TV Edition")
-                    }
+                    NewsScreen()
                 }
             }
         }
