@@ -15,12 +15,22 @@ android {
         versionName = "1.207.01"
     }
 
+    // ✅ ALLINEAMENTO JAVA / KOTLIN (FIX ERRORE JVM)
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
         }
+        debug {
+            // default
+        }
     }
 
+    // ✅ COMPOSE
     buildFeatures {
         compose = true
     }
@@ -29,21 +39,28 @@ android {
         kotlinCompilerExtensionVersion = "1.5.14"
     }
 
+    // ✅ KOTLIN JVM TARGET
     kotlinOptions {
         jvmTarget = "17"
     }
 }
 
 dependencies {
+
+    // Compose BOM
     val composeBom = platform("androidx.compose:compose-bom:2024.06.00")
     implementation(composeBom)
 
+    // Compose core
     implementation("androidx.activity:activity-compose:1.9.2")
-    implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.ui:ui-tooling-preview")
     debugImplementation("androidx.compose.ui:ui-tooling")
 
+    // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+
+    // HTTP (RSS)
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
 }
